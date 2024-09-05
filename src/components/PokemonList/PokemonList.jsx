@@ -30,6 +30,7 @@ function PokemonList(){
         // that will download those 20 pokemons
         const pokemonResultPromise = pokemonResults.map((pokemon)=> axios.get(pokemon.url));
 
+
         // passing that promise array to axios.all
         const pokemonData = await axios.all(pokemonResultPromise); //array of 20 pokemon detailed data
         console.log(pokemonData);
@@ -59,7 +60,7 @@ function PokemonList(){
         <div className="pokemon-list-wrapper">
             <div className="pokemon-wrapper">
             {(isLoading) ? 'Loading.....' : 
-                pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id}/>)
+                pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
             }
             </div>
             <div className="controls">
